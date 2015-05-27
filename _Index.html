@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#000000;" >
+<!--<video hidden id="video" src="_videos/...avi" controls="true" ></video>-->
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #ffffff;"/>
+<meta charset="utf-8" />
+<script src="_js/time.js"></script>
+<script src="_js/canvas.js"></script>
+<script src="_js/fadeIn.js"></script>
+<script src="_js/keyboard.js"></script>
+<script src="_js/manager.js"></script>
+<script src="_js/rotation.js"></script>
+<script src="_js/screen.js"></script>
+<script src="_js/mouse.js"></script>
+<script src="_js/fund.js"></script>
+<script src="_js/buttons.js"></script>
+<script src="_js/player.js"></script>
+<script src="_js/sprite.js"></script>
+<script src="_js/gameplay.js"></script>
+<script src="_js/arrow.js"></script>
+<script src="_js/colision.js"></script>
+<script src="_js/fundGameplay.js"></script>
+<script src="_js/HUD.js"></script>
+<script src="_js/pause.js"></script>
+<script src="_js/score.js"></script>
+<script src="_js/bonus.js"></script>
+<link rel="stylesheet" type="text/css" href="_Css/Style.css"/> 
+<script>
+	
+	var _mouseMove = function(e)
+	{
+		mouse.x = e.x;
+		mouse.y = e.y;
+	}
+
+	var _mouseDown = function(e)
+	{
+		mouse.click = true;
+	}
+	
+	var _mouseUp = function(e)
+	{
+		mouse.click = false;
+	}	
+
+	document.addEventListener("mousemove", _mouseMove, false);
+	document.addEventListener("mousedown", _mouseDown, false);
+	document.addEventListener("mouseup",   _mouseUp,   false);
+	
+	function draw()
+	{
+		manager.draw();
+	}
+	
+	function update()
+	{
+		manager.update();
+	}
+
+	function loop()
+	{
+		draw();
+		update();
+		setTimeout(loop, 30);
+	}
+	
+	loop();
+	
+</script>
+</body>
+</html>
