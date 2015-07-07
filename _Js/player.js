@@ -38,6 +38,9 @@ var Player = function()
 		if(this.effect === "Fast")
 		{ spriteFire.update(); this.speed = 7.5; fundGameplay.speed = 200; this.imageEffect.src = "./_Images/Bonus/BonusScreenRed.png";}
 		
+		if (this.effect === "Slow")
+		{ console.log("Player is Slow"); }
+
 		if(this.effect === "Normal")
 		{ this.speed = 5; fundGameplay.speed -= 2.0; if(fundGameplay.speed <= 15){fundGameplay.speed = 15;} this.imageEffect.src = "./_Images/Bonus/NoBonus.png";}
 				

@@ -10,15 +10,32 @@ var bonus = function()
 	this.w = 53;
 	this.h = 60; 
 	
+	this.ChangeEffect = function()
+	{
+	    if(this.image.src === this.radomImage[0])
+	    { player.effect = "Fast"; }
+	    else if (this.image.src === this.radomImage[1])
+	    { player.effect = "Slow"; }
+	    else if (this.image.src === this.radomImage[2])
+	    { player.effect = "Normal"; }
+
+	}
+
+	this.Move = function()
+	{
+	    this.x -= 5;
+
+	    if (this.x < 0 - this.w)
+	    { this.x = 3000; this.image.src = bonus.radomImage[Math.floor(Math.random() * (bonus.radomImage.length))]; }
+
+	    if (this.x < 2000)
+	    { player.effect = "Normal"; }
+	}
+
 	this.update = function()
 	{
-		this.x -= 5;
-		
-		if(this.x < 0 - this.w)
-		{ this.x = 3000; this.image.src = bonus.radomImage[Math.floor(Math.random() * (bonus.radomImage.length))];}
-		
-		if(this.x < 2000)
-		{ player.effect = "Normal"; }
+	    this.Move();
+		this.ChangeEffect();
 	}
 	
 	this.draw = function()
@@ -26,4 +43,5 @@ var bonus = function()
 		graphics.ctx.drawImage(this.image,this.x,this.y,this.w,this.h);
 	}
 }
+
 var bonus = new bonus();
