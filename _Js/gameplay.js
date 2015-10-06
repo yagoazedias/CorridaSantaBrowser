@@ -30,11 +30,11 @@ var Gameplay = function()
 		if(screenGame.GameScene === "Scene_Game")
 		{
 			fundGameplay.draw();
-			player.draw();
 			arrow1.draw();
 			arrow2.draw();
 			arrow3.draw();
 			arrow4.draw();
+			player.draw();
 			bonus.draw();
 			hud.draw();
 		}

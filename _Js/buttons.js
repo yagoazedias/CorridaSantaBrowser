@@ -147,6 +147,31 @@ var Button = function()
 				this.Back_H = 68;
 			}
 		}
+
+		if (screenGame.GameScene === "Scene_Dead") {
+
+		    if (mouse.x > this.Back_X + 10 &&
+                mouse.x < this.Back_X + this.Back_W - 10 &&
+                mouse.y > this.Back_Y + 10 &&
+                mouse.y < this.Back_Y + this.Back_H - 10) {
+
+		        this.Back_X = 550;
+		        this.Back_Y = 480;
+		        this.Back_W = 190;
+		        this.Back_H = 88;
+
+		        if (mouse.click) {
+		            fadeIn.meaning = "Scene_Menu";
+		            fadeIn.transition = true;
+		        }
+		    }
+		    else {
+		        this.Back_X = 560;
+		        this.Back_Y = 490;
+		        this.Back_W = 170;
+		        this.Back_H = 68;
+		    }
+		}
 	}
 	
 	this.drawButtonBack = function()

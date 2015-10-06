@@ -15,24 +15,20 @@ var FadeIn = function()
 	{
 		if(this.transition)
 		{
-			console.log("esta atualizando");
 			this.up_y += this.speed;
 			this.down_y -= this.speed;
 			
 			if(this.up_y + this.up_h >= this.down_y)
-			{
-				this.speed *= -1;
-			}	
+			{ this.speed *= -1; }	
 						
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Menu")
-			{
-				screenGame.GameScene = "Scene_Menu";
-			}
+			{ screenGame.GameScene = "Scene_Menu"; }
+
+			if (this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Dead")
+			{ screenGame.GameScene = "Scene_Dead"; }
 						
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Directions")
-			{
-				screenGame.GameScene = "Scene_Directions";
-			}
+			{ screenGame.GameScene = "Scene_Directions"; }
 						
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Game")
 			{

@@ -34,10 +34,17 @@ var FundGameplay = function()
 		}
 	}
 	
+	this.riverMoviment = function ()
+	{
+	    if (player.effect === "Slow")
+	    { this.riverY += 5; }
+	    else { this.riverY += 5; }
+	}
+
 	this.update = function()
 	{
-		this.x -= this.speed;
-		this.riverY += 10;
+	    this.x -= this.speed;
+	    this.riverMoviment();
 		this.riverX = this.x + 1000;
 		this.bridgeX = this.x + 975;
 		
