@@ -1,4 +1,4 @@
-var bonus = function()
+var bonus = (function()
 {
 	this.image = new Image();
 	this.image.src = "./_Images/Bonus/BonusRed.png";
@@ -12,17 +12,16 @@ var bonus = function()
 	this.w = 53;
 	this.h = 60; 
 	
-	this.ChangeEffect = function()
-	{
+	this.ChangeEffect = (function() {
 	    switch (this.effect)
 	    {
 	        case "Fast": this.image.src = "./_Images/Bonus/BonusRed.png"; break;
 	        case "Slow": this.image.src = "./_Images/Bonus/BonusBlue.png"; break;
 	        case "Normal": this.image.src = "./_Images/Bonus/BonusGold.png"; break;
 	    }
-	}
+	});
 
-	this.Move = function()
+	this.Move = (function()
 	{
 	    this.x -= 5;
 
@@ -35,18 +34,15 @@ var bonus = function()
 
 	    if (this.x < 2000)
 	    { player.effect = "Normal"; }
-	}
+	});
 
-	this.update = function()
-	{
+	this.update = (function() {
 	    this.Move();
 	    this.ChangeEffect();
-	}
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		graphics.ctx.drawImage(this.image,this.x,this.y,this.w,this.h);
-	}
-}
-
+	});
+});
 var bonus = new bonus();
