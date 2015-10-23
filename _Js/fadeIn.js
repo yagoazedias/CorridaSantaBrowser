@@ -1,4 +1,4 @@
-var FadeIn = function()
+var FadeIn = (function()
 {
 	this.up_y = -300;
 	this.up_w = 800;
@@ -11,8 +11,8 @@ var FadeIn = function()
 	this.transition = false;
 	this.speed = 10;
 	
-	this.update = function()
-	{
+	this.update = (function() {
+		
 		if(this.transition)
 		{
 			this.up_y += this.speed;
@@ -43,9 +43,7 @@ var FadeIn = function()
 			}
 					
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Credits")
-			{
-				screenGame.GameScene = "Scene_Credits";
-			}
+			{ screenGame.GameScene = "Scene_Credits"; }
 						
 			if(this.up_y == graphics.canvas.height/2 * -1 && this.down_y == graphics.canvas.height)
 			{
@@ -55,13 +53,11 @@ var FadeIn = function()
 				this.transition = false;
 			}				
 		}
-	}
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		graphics.drawRect(0,this.up_y ,this.up_w,this.up_h,"black");
 		graphics.drawRect(0,this.down_y,this.down_w,this.down_h,"black");
-	}
-}
-
+	});
+});
 var fadeIn = new FadeIn();
