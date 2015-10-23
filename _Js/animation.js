@@ -25,16 +25,16 @@ var Gif = function( x , y , w ,h , row , column , image_w , image_h , image_src 
 	this._w = image_w / this.column;
 	this._h = image_h / this.row;
 
-	this.deltaTime = function()
+	this.deltaTime = (function()
 	{
 		this.current = (new Date()).getTime();
 		this.elapsed = this.current - this.start;
 		this.start = this.current;
 		this.delta = this.elapsed / 1000.;			
 		return this.delta;
-	}
+	});
 
-	this.update= function()
+	this.update = (function()
 	{
 
 		this.delta = this.deltaTime();	
@@ -42,17 +42,16 @@ var Gif = function( x , y , w ,h , row , column , image_w , image_h , image_src 
 		this.currentFrame %= this.numFrames;
 
 		this.image.src = "Animations/"+ this.image_source;	
-	}
+	});
 
-	this.draw = function()
-	{
+	this.draw = (function() {
 		ctx.drawImage(this.image,
-						  Math.floor(this.currentFrame % this.column) * this._w, // x do frame na imagem
-						  Math.floor(this.currentFrame / this.column) * this._h, // y do frame na imagem
-						  this._w, this._h, // largura e altura do frame na imagem
-						  this.x, this.y, this.w, this.h); // posição e tamanho do frame no canvas	)
+				Math.floor(this.currentFrame % this.column) * this._w, 
+					  Math.floor(this.currentFrame / this.column) * this._h, 
+						  this._w, this._h,
+							this.x, this.y, this.w, this.h);
 
-	}
-}
+	});
+});
 
 var gif = Gif( x , y , w ,h , row , column , image_w , image_h , image_src , animation_speed)
