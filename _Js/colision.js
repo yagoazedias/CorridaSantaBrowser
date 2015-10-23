@@ -1,37 +1,30 @@
-var Colision = function()
+var Colision = (function()
 {
 	this.hit = new Image();
 	this.hit.src = "./_Images/bonus/HIT.png";
 	
-	this.updateEffect = function()
-	{
-	    if (bonus.effect === "Fast") {
-	        player.effect = "Fast";
-	        player.life = 5;
-	    }
+	this.updateEffect = (function() {
+	   
+	    if (bonus.effect === "Fast") 
+	    { player.effect = "Fast"; player.life = 5; }
 
-	    if (bonus.effect === "Slow") {
-	        player.effect = "Slow";
-	        player.life = 5;
-	    }
+	    if (bonus.effect === "Slow") 
+	    { player.effect = "Slow"; player.life = 5; }
 
-	    if (bonus.effect === "Normal") {
-	        player.effect = "Normal";
-	        player.life = 10;
-	    }
+	    if (bonus.effect === "Normal") 
+	    { player.effect = "Normal"; player.life = 10; }
 
 	    bonus.effect = bonus.randomEffect[Math.floor(Math.random() * (bonus.randomEffect.length))];
-	}
+	});
 
-	this.changeBonusPos = function()
-	{
+	this.changeBonusPos = (function() {
 	    bonus.x = 3000;
 	    bonus.y = 200 + Math.floor(Math.random() * (graphics.canvas.height - 300));
 	    bonus.effect = bonus.randomEffect[Math.floor(Math.random() * (bonus.randomEffect.length))];
-	}
-
-	this.update = function()
-	{
+	});
+	
+	this.updateColisionForScene = (function(){
+		
 		if(screenGame.GameScene === "Scene_Game")
 		{
 		    if ((player.x > arrow1.x - player.w + 50) && (player.x < arrow1.x) &&
@@ -56,7 +49,12 @@ var Colision = function()
 		        this.updateEffect();
 		        this.changeBonusPos();
 			} 
-		}
-	}
-}
+		}	
+	});
+	
+	
+	this.update = (function() {
+		this.updateColisionForScene();
+	});
+});
 var colision = new Colision();
