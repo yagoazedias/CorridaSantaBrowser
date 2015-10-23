@@ -1,4 +1,4 @@
-var Fund = function()
+var Fund = (function()
 {
 	this.x = 0;
 	this.speed = 2.5;
@@ -6,19 +6,15 @@ var Fund = function()
 	this.Image = new Image();
 	this.Image.src = "./_Images/Maps/BackGroundMenu.png";
 	
-	this.update = function()
-	{
+	this.update = (function() {
 		this.x -= this.speed;
 		
-			if(this.x <= -4000)
-			{
-				this.x = 0;
-			}
-	}
+		if(this.x <= -4000)
+		{ this.x = 0; }
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		graphics.ctx.drawImage(this.Image,this.x,0);
-	}
-}
+	});
+});
 var fund = new Fund()
