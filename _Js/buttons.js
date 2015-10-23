@@ -1,4 +1,4 @@
-var Button = function()
+var Button = (function()
 {
 	this.ImagePlay = new Image();
 	this.ImagePlay.src = "./_Images/Buttons/ButtonPlay.png";
@@ -32,9 +32,8 @@ var Button = function()
 		this.Back_W = 170;
 		this.Back_H = 68;
 		
-	
-	this.update = function()
-	{
+		
+	this.updateButtons = (function() {
 		if(mouse.x > this.Play_X + 10 && mouse.x < this.Play_X + this.Play_W - 10 && mouse.y > this.Play_Y + 10 && mouse.y < this.Play_Y + this.Play_H - 10)
 		{
 			this.Play_X = 305;
@@ -96,11 +95,14 @@ var Button = function()
 			this.Credits_Y = 450;
 			this.Credits_W = 170;
 			this.Credits_H = 68;
-		}
-	}
+		}	
+	});
 	
-	this.updateButtonBack = function()
-	{
+	this.update = (function() {
+		this.updateButtons();
+	});
+	
+	this.updateButtonBack = (function() {
 		if(screenGame.GameScene === "Scene_Credits")
 		{
 			if(mouse.x > this.Back_X + 10 && mouse.x < this.Back_X + this.Back_W - 10 && mouse.y > this.Back_Y + 10 && mouse.y < this.Back_Y + this.Back_H - 10)
@@ -151,9 +153,9 @@ var Button = function()
 		if (screenGame.GameScene === "Scene_Dead") {
 
 		    if (mouse.x > this.Back_X + 10 &&
-                mouse.x < this.Back_X + this.Back_W - 10 &&
-                mouse.y > this.Back_Y + 10 &&
-                mouse.y < this.Back_Y + this.Back_H - 10) {
+        	    	mouse.x < this.Back_X + this.Back_W - 10 &&
+                	mouse.y > this.Back_Y + 10 &&
+                	mouse.y < this.Back_Y + this.Back_H - 10) {
 
 		        this.Back_X = 550;
 		        this.Back_Y = 480;
@@ -172,18 +174,16 @@ var Button = function()
 		        this.Back_H = 68;
 		    }
 		}
-	}
+	});
 	
-	this.drawButtonBack = function()
-	{
+	this.drawButtonBack = (function() {
 		graphics.ctx.drawImage(this.ImageBack,this.Back_X,this.Back_Y,this.Back_W,this.Back_H);
-	}
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		graphics.ctx.drawImage(this.ImagePlay,this.Play_X,this.Play_Y,this.Play_W,this.Play_H);
 		graphics.ctx.drawImage(this.ImageDirections,this.Directions_X,this.Directions_Y,this.Directions_W,this.Directions_H);
 		graphics.ctx.drawImage(this.ImageCredits,this.Credits_X,this.Credits_Y,this.Credits_W,this.Credits_H);
-	}
-}
+	});
+});
 var button = new Button();
