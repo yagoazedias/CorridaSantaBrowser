@@ -1,4 +1,4 @@
-var FundGameplay = function()
+var FundGameplay = (function()
 {
 	this.x = 0;
 	this.y = 0;
@@ -23,8 +23,7 @@ var FundGameplay = function()
 	
 		this.bridgeX = 0;
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		graphics.ctx.drawImage(this.image,this.x,this.y,this.w,this.h);
 		
 		if(this.radomNumber > 95)
@@ -32,17 +31,15 @@ var FundGameplay = function()
 			graphics.ctx.drawImage(this.riverImage, this.riverX, this.riverY, 519, 6000);
 			graphics.ctx.drawImage(this.bridgeImage, this.bridgeX,125);
 		}
-	}
+	});
 	
-	this.riverMoviment = function ()
-	{
+	this.riverMoviment = (function () {
 	    if (player.effect === "Slow")
 	    { this.riverY += 5; }
 	    else { this.riverY += 5; }
-	}
+	});
 
-	this.update = function()
-	{
+	this.update = (function() {
 	    this.x -= this.speed;
 	    this.riverMoviment();
 		this.riverX = this.x + 1000;
@@ -56,6 +53,6 @@ var FundGameplay = function()
 			
 			if(this.riverY >= 0)
 			{this.riverY = -5200;}
-	}
-}
+	});
+});
 var fundGameplay = new FundGameplay();
