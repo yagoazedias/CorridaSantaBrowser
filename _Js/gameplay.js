@@ -1,8 +1,8 @@
-var Gameplay = function()
+var Gameplay = (function()
 {
 	this.pause = false;
 	
-	this.update = function()
+	this.update = (function()
 	{
 		if(screenGame.GameScene === "Scene_Game" && !this.pause)
 		{
@@ -19,14 +19,11 @@ var Gameplay = function()
 		}
 		
 		if(screenGame.GameScene === "Scene_Game" && this.pause)
-		{
-			pause.update();
-			time.update();
-		}
-	}
+		{ pause.update(); time.update(); }
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
+	
 		if(screenGame.GameScene === "Scene_Game")
 		{
 			fundGameplay.draw();
@@ -40,9 +37,7 @@ var Gameplay = function()
 		}
 		
 		if(screenGame.GameScene === "Scene_Game" && this.pause)
-		{
-			pause.draw();
-		}
-	}
-}
+		{ pause.draw();}
+	});
+});
 var gameplay = new Gameplay();
