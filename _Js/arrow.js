@@ -1,4 +1,4 @@
-var Arrow = function(x, name, speed)
+var Arrow = (function(x, name, speed)
 {
 	this.image = new Image();
 	this.image.src = "./_Images/Bonus/Arrow.png";
@@ -11,8 +11,8 @@ var Arrow = function(x, name, speed)
 	
 	this.speed = speed;
 	
-	this.update = function()
-	{
+	this.update = (function() {
+		
 		this.x -= this.speed;
 		
 		if(this.x < 0 - 160 && this.name != "arrow1")
@@ -21,13 +21,12 @@ var Arrow = function(x, name, speed)
 		}
 		
 		if(this.x < 0 - 160 && this.name === "arrow1" ){this.y = player.y +25;this.x = 1000;}
-	}
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		graphics.ctx.drawImage(this.image,this.x,this.y,this.w,this.h);
-	}
-}
+	});
+});
 var arrow1 = new Arrow(1000, "arrow1",20);
 var arrow2 = new Arrow(800, "arrow2",20);
 var arrow3 = new Arrow(1300, "arrow3", 20);
