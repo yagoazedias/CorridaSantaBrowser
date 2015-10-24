@@ -1,4 +1,4 @@
-var pause = function()
+var pause = (function()
 {
 	this.pauseImage = new Image()
 	this.pauseImage.src = "./_Images/Screens/PauseScreen.png"
@@ -19,9 +19,8 @@ var pause = function()
 		this.btBack_w = 336;
 		this.btBack_h = 129;
 
-	this.update = function()
-	{
-		if(mouse.x > this.btMenu_x + 10 && mouse.x < this.btMenu_x + this.btMenu_w - 10 && mouse.y > this.btMenu_y + 10 && mouse.y < this.btMenu_y + this.btMenu_h - 10)
+	this.updatePauseButton = (function(){
+			if(mouse.x > this.btMenu_x + 10 && mouse.x < this.btMenu_x + this.btMenu_w - 10 && mouse.y > this.btMenu_y + 10 && mouse.y < this.btMenu_y + this.btMenu_h - 10)
 		{
 			this.btMenu_x = 220;
 			this.btMenu_y = 165;
@@ -60,13 +59,17 @@ var pause = function()
 			this.btBack_w = 336;
 			this.btBack_h = 129;
 		}
+	});
+
+	this.update = function()
+	{
+		this.updatePauseButton();
 	}
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		graphics.ctx.drawImage(this.pauseImage,0,0);
 		graphics.ctx.drawImage(this.buttonMenu,this.btMenu_x, this.btMenu_y,this.btMenu_w, this.btMenu_h);
 		graphics.ctx.drawImage(this.buttonBack,this.btBack_x,this.btBack_y,this.btBack_w, this.btBack_h);
-	}
-}
+	});
+});
 var pause = new pause();
