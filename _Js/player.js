@@ -1,5 +1,5 @@
-var Player = function()
-{
+var Player = (function() {
+	
 	this.x = 200;
 	this.y = 200;
 	this.w = 163;
@@ -17,8 +17,7 @@ var Player = function()
 	this.moveUp = false;
 	this.moveDown = false;
 	
-	this.updateSprite = function()
-	{
+	this.updateSprite = (function() {
 		spritePlayer.x = this.x;
 		spritePlayer.y = this.y;
 		spritePlayer.w = this.w;
@@ -28,9 +27,9 @@ var Player = function()
 		spriteFire.y = this.y - 60;
 		spriteFire.w = 450;
 		spriteFire.h = 260;
-	}
+	});
 	
-	this.updateFastEffect = function () {
+	this.updateFastEffect = (function () {
 	    this.imageEffect.src = "./_Images/Bonus/BonusScreenRed.png";
 	    spriteFire.update(); this.speed = 7.5;
 	    fundGameplay.speed = 200;
@@ -38,9 +37,9 @@ var Player = function()
 	    arrow2.x = 900;
 	    arrow3.x = 900;
 	    arrow4.x = 900;
-	}
+	});
 
-	this.updateSlowEffect = function () {
+	this.updateSlowEffect = (function () {
 	    this.imageEffect.src = "./_Images/Bonus/BonusBlueScreen.png";
 	    this.speed = 2.5;
 	    fundGameplay.speed = 7.5;
@@ -48,18 +47,18 @@ var Player = function()
 	    arrow2.speed = 5;
 	    arrow3.speed = 5;
 	    arrow4.speed = 5;
-	}
+	});
 
-	this.updateDead = function()
+	this.updateDead = (function()
 	{
 	    if(this.life < 1)
 	    {
 	        fadeIn.transition = true;
 	        fadeIn.meaning = "Scene_Dead";
 	    }
-	}
+	});
 
-	this.updateNormalEffect = function ()
+	this.updateNormalEffect = (function ()
 	{
 	    this.imageEffect.src = "./_Images/Bonus/NoBonus.png";
 
@@ -73,9 +72,9 @@ var Player = function()
 	    arrow2.speed = 20;
 	    arrow3.speed = 20;
 	    arrow4.speed = 20;
-    }
+    });
 
-	this.updateMoving = function()
+	this.updateMoving = (function()
 	{
 	    if (this.moveRight)
 	    { this.x += this.speed; }
@@ -100,13 +99,14 @@ var Player = function()
 
 	    if (this.y > graphics.canvas.height - this.h - 50)
 	    { this.y = graphics.canvas.height - this.h - 50; }
-	}
+	});
 
-	this.update = function()
+	this.update = (function()
 	{
 	    this.updateSprite();
 	    this.updateDead();
 	    this.updateMoving()
+	
 		spritePlayer.update();
 
 		if(this.effect === "Fast")
@@ -118,16 +118,15 @@ var Player = function()
 		if(this.effect === "Normal")
 		{ this.updateNormalEffect(); }
 				
-	}
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
 		spritePlayer.draw();
 		
 		if(this.effect === "Fast")
 		{ spriteFire.draw();}
 		
 		graphics.ctx.drawImage(this.imageEffect,0,0);
-	}
-}
+	});
+});
 var player = new Player();
