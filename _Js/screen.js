@@ -1,4 +1,4 @@
-var ScreenGame = function()
+var ScreenGame = (function()
 {
 	this.ImageFront = new Image();
 	this.ImageFront.src = "./_Images/Screens/Logo.png";
@@ -6,8 +6,10 @@ var ScreenGame = function()
 	this.meaning = "Scene_Menu";
 	this.GameScene = "Scene_Menu";
 	
-	this.restoreConfigs = function()
-	{
+	this.restoreConfigs = (function() {
+	   
+	    player.effect = "Normal";
+	    
 	    player.life = 5;
 	    arrow1.speed = 20;
 	    arrow2.speed = 20;
@@ -20,10 +22,10 @@ var ScreenGame = function()
 	    arrow4.x = 1000;
 
 	    score.number = 0;
-	}
+	});
 
-	this.update = function()
-	{
+	this.update = (function() {
+		
 		if(this.GameScene === "Scene_Menu")
 		{
 			this.ImageFront.src = "./_Images/Screens/Logo.png";
@@ -50,10 +52,10 @@ var ScreenGame = function()
 		    this.ImageFront.src = "./_Images/Screens/GameOverScreen.png";
 		    button.updateButtonBack();
 		}
-	}
+	});
 	
-	this.draw = function()
-	{
+	this.draw = (function() {
+		
 		if(this.GameScene === "Scene_Menu")
 		{
 			fund.draw();
@@ -79,7 +81,6 @@ var ScreenGame = function()
 		    graphics.ctx.drawImage(this.ImageFront, 0, 0);
 		    button.drawButtonBack();
 		}
-
-	}
-}
+	});
+});
 var screenGame = new ScreenGame();
