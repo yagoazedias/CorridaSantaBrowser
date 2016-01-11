@@ -16,7 +16,8 @@ var Fund = (function()
         }
 	});
 	
-	this.draw = (function() {
+	this.draw = (function() 
+    {
 		graphics.ctx.drawImage(this.Image,this.x,0);
 	});
 });
