@@ -27,42 +27,42 @@
 <link rel="stylesheet" type="text/css" href="_Css/Style.css"/> 
 <script>
 	
-	var _mouseMove = function(e)
+	var _mouseMove = (function(e)
 	{
 		mouse.x = e.x;
 		mouse.y = e.y;
-	}
+	});
 
-	var _mouseDown = function(e)
+	var _mouseDown = (function(e)
 	{
 		mouse.click = true;
-	}
+	});
 	
-	var _mouseUp = function(e)
+	var _mouseUp = (function(e)
 	{
 		mouse.click = false;
-	}	
+	});
 
 	document.addEventListener("mousemove", _mouseMove, false);
 	document.addEventListener("mousedown", _mouseDown, false);
 	document.addEventListener("mouseup",   _mouseUp,   false);
 	
-	function draw()
+	var draw = (function()
 	{
 		manager.draw();
-	}
+	});
 	
-	function update()
+	var update = (function()
 	{
 		manager.update();
-	}
+	});
 
-	function loop()
+	var loop = (function()
 	{
 		draw();
 		update();
 		setTimeout(loop, 30);
-	}
+	});
 	
 	loop();
 	
