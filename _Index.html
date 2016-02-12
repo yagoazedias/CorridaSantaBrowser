@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <body bgcolor="#000000;" >
 <!--<video hidden id="video" src="_videos/...avi" controls="true" ></video>-->
-<canvas id="myCanvas" width="800" height="600" style="border:1px solid #ffffff;"/>
+<canvas id="myCanvas" width="800" height="600"/>
 <meta charset="utf-8" />
 <script src="_js/time.js"></script>
 <script src="_js/canvas.js"></script>
@@ -29,17 +29,21 @@
 	
 	var _mouseMove = (function(e)
 	{
-		mouse.x = e.x;
-		mouse.y = e.y;
-	});
+        mouse.x = e.x - graphics.canvas.offsetLeft;
+		mouse.y = e.y - graphics.canvas.offsetTop;	
+    });
 
 	var _mouseDown = (function(e)
 	{
+        mouse.x = e.x - graphics.canvas.offsetLeft;
+		mouse.y = e.y - graphics.canvas.offsetTop;	
 		mouse.click = true;
 	});
 	
 	var _mouseUp = (function(e)
 	{
+        mouse.x = e.x - graphics.canvas.offsetLeft;
+		mouse.y = e.y - graphics.canvas.offsetTop;	
 		mouse.click = false;
 	});
 
