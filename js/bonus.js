@@ -1,7 +1,7 @@
 var bonus = (function()
 {
 	this.image = new Image();
-	this.image.src = "./_Images/Bonus/BonusRed.png";
+	this.image.src = "./img/Bonus/BonusRed.png";
 	this.effect = "Slow";
 	
 	this.randomEffect = ["Fast","Slow","Normal"];

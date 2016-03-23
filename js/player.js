@@ -17,7 +17,8 @@ var Player = (function() {
 	this.moveUp = false;
 	this.moveDown = false;
 	
-	this.updateSprite = (function() {
+	this.updateSprite = (function ()
+    {
 		spritePlayer.x = this.x;
 		spritePlayer.y = this.y;
 		spritePlayer.w = this.w;
@@ -29,7 +30,8 @@ var Player = (function() {
 		spriteFire.h = 260;
 	});
 	
-	this.updateFastEffect = (function () {
+	this.updateFastEffect = (function ()
+	{
 	    this.imageEffect.src = "./_Images/Bonus/BonusScreenRed.png";
 	    spriteFire.update(); this.speed = 7.5;
 	    fundGameplay.speed = 200;

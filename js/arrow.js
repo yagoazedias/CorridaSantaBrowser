@@ -1,7 +1,7 @@
 var Arrow = (function(x, name, speed)
 {
 	this.image = new Image();
-	this.image.src = "./_Images/Bonus/Arrow.png";
+	this.image.src = "./img/Bonus/Arrow.png";
 	this.name = name;
 
 	this.x = x;

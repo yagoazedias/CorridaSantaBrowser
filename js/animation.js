@@ -15,7 +15,7 @@ var Gif = function( x , y , w ,h , row , column , image_w , image_h , image_src 
 	this.numFrames = this.row * this.column;	
 	
 	
-	this.image.src = "./_Images/Buttons/" + this.image_source;
+	this.image.src = "./img/Buttons/" + this.image_source;
     
 	this.x = x;
 	this.y = y;
