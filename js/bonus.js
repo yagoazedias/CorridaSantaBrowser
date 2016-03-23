@@ -12,7 +12,7 @@ var bonus = (function()
 	this.w = 53;
 	this.h = 60; 
 	
-	this.ChangeEffect = (function() {
+	this.changeEffect = (function() {
 	    switch (this.effect)
 	    {
 	        case "Fast": this.image.src = "./_Images/Bonus/BonusRed.png"; break;
@@ -21,27 +21,30 @@ var bonus = (function()
 	    }
 	});
 
-	this.Move = (function()
+	this.move = (function()
 	{
 	    this.x -= 5;
 
 	    if (this.x < 0 - this.w)
 	    {
 	        this.x = 3000;
-	        //this.image.src = bonus.radomImage[Math.floor(Math.random() * (bonus.radomImage.length))];
 	        this.effect = this.randomEffect[Math.floor(Math.random() * (bonus.randomEffect.length))];
 	    }
 
 	    if (this.x < 2000)
-	    { player.effect = "Normal"; }
+	    { 
+            player.effect = "Normal";
+        }
 	});
 
-	this.update = (function() {
+	this.update = (function()
+    {
 	    this.Move();
 	    this.ChangeEffect();
 	});
 	
-	this.draw = (function() {
+	this.draw = (function()
+    {
 		graphics.ctx.drawImage(this.image,this.x,this.y,this.w,this.h);
 	});
 });
