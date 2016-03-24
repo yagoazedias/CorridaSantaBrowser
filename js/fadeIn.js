@@ -11,7 +11,8 @@ var FadeIn = (function()
 	this.transition = false;
 	this.speed = 10;
 	
-	this.update = (function() {
+	this.update = (function() 
+    {
 		
 		if(this.transition)
 		{
@@ -19,16 +20,24 @@ var FadeIn = (function()
 			this.down_y -= this.speed;
 			
 			if(this.up_y + this.up_h >= this.down_y)
-			{ this.speed *= -1; }	
+			{ 
+                this.speed *= -1; 
+            }	
 						
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Menu")
-			{ screenGame.GameScene = "Scene_Menu"; }
+			{ 
+                screenGame.GameScene = "Scene_Menu"; 
+            }
 
 			if (this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Dead")
-			{ screenGame.GameScene = "Scene_Dead"; }
+			{ 
+                screenGame.GameScene = "Scene_Dead"; 
+            }
 						
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Directions")
-			{ screenGame.GameScene = "Scene_Directions"; }
+			{ 
+                screenGame.GameScene = "Scene_Directions"; 
+            }
 						
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Game")
 			{
@@ -43,7 +52,9 @@ var FadeIn = (function()
 			}
 					
 			if(this.up_y + this.up_h >= this.down_y && this.meaning === "Scene_Credits")
-			{ screenGame.GameScene = "Scene_Credits"; }
+			{
+                screenGame.GameScene = "Scene_Credits"; 
+            }
 						
 			if(this.up_y == graphics.canvas.height/2 * -1 && this.down_y == graphics.canvas.height)
 			{
@@ -55,7 +66,8 @@ var FadeIn = (function()
 		}
 	});
 	
-	this.draw = (function() {
+	this.draw = (function() 
+    {
 		graphics.drawRect(0,this.up_y ,this.up_w,this.up_h,"black");
 		graphics.drawRect(0,this.down_y,this.down_w,this.down_h,"black");
 	});

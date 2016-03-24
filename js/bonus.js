@@ -12,7 +12,8 @@ var bonus = (function()
 	this.w = 53;
 	this.h = 60; 
 	
-	this.changeEffect = (function() {
+	this.changeEffect = (function()
+    {
 	    switch (this.effect)
 	    {
 	        case "Fast": this.image.src = "./_Images/Bonus/BonusRed.png"; break;
@@ -39,8 +40,8 @@ var bonus = (function()
 
 	this.update = (function()
     {
-	    this.Move();
-	    this.ChangeEffect();
+	    this.move();
+	    this.changeEffect();
 	});
 	
 	this.draw = (function()
