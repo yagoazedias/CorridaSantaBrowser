@@ -8,10 +8,12 @@
 <script src="js/main.js"></script>
 <script src="js/map.js"></script>
 <script src="js/screen.js"></script>
+<script src="js/button.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css"/> 
 <script>
 	
-    (function() {
+    (function() 
+     {  
         var draw = (function()
         {
             main.draw();
@@ -21,14 +23,20 @@
         {
             main.update();
         });
-
+        
+        var start = (function()
+        {
+            main.start();
+        });
+        
         var loop = (function()
         {
             draw();
             update();
             setTimeout(loop, 30);
         });
-
+        
+        start();
         loop();
     })();
 	

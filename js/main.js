@@ -1,5 +1,11 @@
 var Main = (function()
 {
+    // This is the fist method to be call.
+    this.start = (function()
+    {
+        screen.start();
+    });
+    
     // This is the main update, here all game will be update.
     this.update = (function()
     {
