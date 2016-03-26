@@ -14,6 +14,7 @@ var Map = (function()
     this.y = 0;
     this.w = 4800;
     this.h = 600;
+    this.riverY = 0;
     
     // Locomotion properties. (speed, acceleration ...)
     this.speed = 5;
@@ -21,13 +22,22 @@ var Map = (function()
     // This is the map object update, here all game will be update.
     this.update = (function()
     {
-        // Move control
+        // Move map control
         this.x -= this.speed;
         
-        // Condition for the map loop.
+        // Condition for the map horizontal loop.
         if(this.x <= ((this.w) * -1) + canvas.element.width)
         {
             this.x = 0;        
+        }
+        
+        // Move river control
+        this.riverY -= this.speed;
+        
+        // Condition for the river vertical loop.
+        if(this.riverY <= -5400)
+        {
+            this.riverY = 0;        
         }
     });
     
@@ -35,7 +45,7 @@ var Map = (function()
     this.draw = (function()
     {
         canvas.ctx.drawImage(this.image, this.x, this.y,  this.w, this.h);
-        canvas.ctx.drawImage(this.riverImg, this.x + 2025,  this.y);
+        canvas.ctx.drawImage(this.riverImg, this.x + 2025,  this.riverY);
         canvas.ctx.drawImage(this.bridgeImg, this.x + 2000, this.y + 125);
     });
 });

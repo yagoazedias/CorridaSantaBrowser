@@ -4,6 +4,7 @@ var Main = (function()
     this.update = (function()
     {
         map.update();
+        screen.update();
     });
     
     // This is the main draw, here all game will be draw.
@@ -11,6 +12,7 @@ var Main = (function()
     {
         canvas.clear();
         map.draw();
+        screen.draw();
     });
 });
 var main = new Main();

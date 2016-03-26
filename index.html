@@ -7,27 +7,30 @@
 <script src="js/canvas.js"></script>
 <script src="js/main.js"></script>
 <script src="js/map.js"></script>
+<script src="js/screen.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css"/> 
 <script>
 	
-	var draw = (function()
-	{
-		main.draw();
-	});
-	
-	var update = (function()
-	{
-		main.update();
-	});
+    (function() {
+        var draw = (function()
+        {
+            main.draw();
+        });
 
-	var loop = (function()
-	{
-		draw();
-		update();
-		setTimeout(loop, 30);
-	});
-	
-	loop();
+        var update = (function()
+        {
+            main.update();
+        });
+
+        var loop = (function()
+        {
+            draw();
+            update();
+            setTimeout(loop, 30);
+        });
+
+        loop();
+    })();
 	
 </script>
 </body>
