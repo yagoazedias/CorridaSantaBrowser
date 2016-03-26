@@ -11,6 +11,7 @@ var Main = (function()
     {
         map.update();
         screen.update();
+        // mouse.update();
     });
     
     // This is the main draw, here all game will be draw.

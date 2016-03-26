@@ -13,15 +13,13 @@ var Button = (function()
     // This is the button update, here all button functions will enable.
     this.update = (function()
     {
-        map.update();
+        
     });
     
     // This is the button draw, here all button visuals will be draw.
     this.draw = (function()
     {
-        canvas.clear();
-        map.draw();
-        screen.draw();
+        canvas.ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
     });
 });
 

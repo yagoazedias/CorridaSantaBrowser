@@ -41,7 +41,7 @@ var Screen = (function()
             canvas.ctx.drawImage(this.image, 0, 0);
             
             for(var i = 0; i < 3; i++)
-            { canvas.ctx.drawImage(button[i].image, button[i].x, button[i].y, button[i].w, button[i].h);}
+            { button[i].draw(); }
         }
     });
 });
