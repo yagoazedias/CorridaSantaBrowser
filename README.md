@@ -5,10 +5,6 @@ A game browser game made in HTM5 for the desing, programmed in Javascript langue
 
 ![alt tag](http://imgur.com/oKnQ8mI.jpg)
 
-#todo
-- A page for public the game.
-- A two players mechanic
-
 # Credits
 - Yago Azedias: https://github.com/yagoazedias/
 - Website: https://yagoazedias.github.io
