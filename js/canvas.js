@@ -18,6 +18,12 @@ var Canvas = (function()
 		this.ctx.fillStyle = "black";
 	});
     
+    this.drawRect = (function(x,y,w,h,color) 
+    {
+		this.ctx.fillStyle = color;
+		this.ctx.fillRect(x,y,w,h);
+	});
+    
 	this.drawCicle = (function(x, y, r, color)
 	{
 		this.ctx.save();

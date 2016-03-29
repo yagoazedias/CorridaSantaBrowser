@@ -9,8 +9,6 @@ var Button = (function()
     // Visual proprerties.
     this.image = new Image();
     this.image.src = "./img/buttons/play.png";
-	
-	this.expand = false;
     
     // This is the button update, here all button functions will enable.
     this.update = (function()
@@ -22,7 +20,7 @@ var Button = (function()
 			
 			if(mouse.click)
 			{
-				console.log(this.expand);		
+				// Change the scene.		
 			}
 		}
     });
