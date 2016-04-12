@@ -4,6 +4,7 @@ var Main = (function()
     this.start = (function()
     {
         screen.start();
+        fade.start();
     });
     
     // This is the main update, here all game will be update.
@@ -18,7 +19,6 @@ var Main = (function()
     this.draw = (function()
     {
         canvas.clear();
-        map.draw();
         screen.draw();
     });
 });

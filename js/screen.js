@@ -68,6 +68,17 @@ var Screen = (function()
             
             fade.update();
         }
+        
+        if(this.name === "game")
+        {
+            fade.update();
+        }
+        
+        if(this.name === "credits")
+        {
+            fade.update();
+            this.image.src = "./img/screens/credits.png";
+        }
     });
     
     // This is the screen draw, here all game will be draw.
@@ -75,11 +86,25 @@ var Screen = (function()
     {
         if(this.name === "menu")
         {
+            map.draw();
             canvas.ctx.drawImage(this.image, 0, 0);
             
             for(var i = 0; i < 3; i++)
             { button[i].draw(); }
             
+            fade.draw();
+        }
+        
+        if(this.name === "game")
+        {
+            map.draw();
+            canvas.ctx.drawImage(this.image, 0, 0);
+            fade.draw();
+        }
+        
+        if(this.name === "credits")
+        {
+            canvas.ctx.drawImage(this.image, 0, 0);
             fade.draw();
         }
     });
