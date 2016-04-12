@@ -3,7 +3,13 @@ var Fade = (function()
     this.rectUpX = 0; 
     this.rectUpY = (canvas.element.height) * -1;
     this.rectUpW = (canvas.element.width ); 
-    this.rectUpH = (canvas.element.height) /  2; 
+    this.rectUpH = (canvas.element.height) /  2;
+    
+    this.rectDownX = 0; 
+    this.rectDownY = (canvas.element.height);
+    this.rectDownW = (canvas.element.width ); 
+    this.rectDownH = (canvas.element.height) /  2; 
+
 
     this.trasition = false;
     
