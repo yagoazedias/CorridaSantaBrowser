@@ -6,6 +6,8 @@ var Button = (function()
     this.w = 170;
     this.h = 68;
     
+    this.name = "";
+    
     // Visual proprerties.
     this.image = new Image();
     this.image.src = "./img/buttons/play.png";
@@ -20,7 +22,13 @@ var Button = (function()
 			
 			if(mouse.click)
 			{
-				// Change the scene.		
+				switch(this.name)
+                {
+                    case "back": fade.fadeTo("menu"); break;           
+                    case "menu": fade.fadeTo("menu"); break;           
+                    case "directions": fade.fadeTo("directions"); break;           
+                    case "credits": fade.fadeTo("credits"); break;           
+                }
 			}
 		}
     });
@@ -34,5 +42,5 @@ var Button = (function()
 
 var button = [];
 
-for(var i = 0; i < 3; i++)
+for(var i = 0; i < 5; i++)
 { button[i] = new Button(); }

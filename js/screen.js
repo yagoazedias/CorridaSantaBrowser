@@ -17,13 +17,21 @@ var Screen = (function()
         button[0].image.src = "./img/buttons/directions.png";
         button[1].image.src = "./img/buttons/play.png";
         button[2].image.src = "./img/buttons/credits.png";
+        button[3].image.src = "./img/buttons/back.png";
         
-        for(var i = 0; i < 3; i++)
+        // Linking the button to your name.
+        button[0].name = "directions";
+        button[1].name = "play";
+        button[2].name = "credits";
+        button[3].name = "back";
+        
+        for(var i = 0; i < 4; i++)
         {
             switch(i)
             {
-                // Each button has its position relative to its previous in the array object.
+                // Each button has its position relative to it's previous in the array object.
                 case 0:  button[i].x = 50; this.x = 400; break;
+                case 4:  button[i].x = 0; button[i].y = 0; break;
                 default: button[i].x = button[i - 1].x + button[i - 1].w + 100; break; 
             }
         }
@@ -66,18 +74,32 @@ var Screen = (function()
 				this.buttonExpand();
 			}
             
+            map.update();
             fade.update();
         }
         
         if(this.name === "game")
         {
+            map.update();
             fade.update();
         }
         
         if(this.name === "credits")
         {
+            map.update();
             fade.update();
+            button[4].update();
+            this.buttonExpand();
             this.image.src = "./img/screens/credits.png";
+        }
+        
+        if(this.name === "directions")
+        {
+            map.update();
+            button[4].update();
+            this.buttonExpand();
+            this.image.src = "./img/screens/directions.png";
+            fade.update();
         }
     });
     
@@ -105,8 +127,17 @@ var Screen = (function()
         if(this.name === "credits")
         {
             canvas.ctx.drawImage(this.image, 0, 0);
+            button[4].draw();
             fade.draw();
         }
+        
+        if(this.name === "directions")
+        {
+            map.draw();
+            canvas.ctx.drawImage(this.image, 0, 0);
+            button[4].draw();
+            fade.draw();
+        }    
     });
 });
 var screen = new Screen();

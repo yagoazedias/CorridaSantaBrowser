@@ -19,7 +19,7 @@ var Fade = (function()
     // This is the fist method to be call.
     this.start = (function()
     {
-        this.fadeTo("credits");
+        // this.fadeTo("credits");
     });
     
     // This is the main update, here all game will be update.
@@ -42,7 +42,20 @@ var Fade = (function()
                 this.speed = 0;
                 this.transition = false;
             }
-        }    
+        }
+        
+        if(!this.transition)
+        {
+            this.rectUpX = 0; 
+            this.rectUpY = -1 * ((canvas.element.height) /  2);
+            this.rectUpW = (canvas.element.width); 
+            this.rectUpH = (canvas.element.height) /  2;
+
+            this.rectDownX = 0; 
+            this.rectDownY = (canvas.element.height);
+            this.rectDownW = (canvas.element.width); 
+            this.rectDownH = (canvas.element.height) /  2; 
+        }
     });
     
     this.fadeTo = (function(way)

@@ -10,7 +10,6 @@ var Main = (function()
     // This is the main update, here all game will be update.
     this.update = (function()
     {
-        map.update();
         screen.update();
         // mouse.update();
     });
