@@ -1,5 +1,7 @@
 var Main = (function()
 {
+    this.screen = "menu";
+    
     // This is the fist method to be call.
     this.start = (function()
     {
@@ -11,6 +13,8 @@ var Main = (function()
     this.update = (function()
     {
         screen.update();
+        map.update();
+        fade.update();
         // mouse.update();
     });
     
@@ -18,7 +22,9 @@ var Main = (function()
     this.draw = (function()
     {
         canvas.clear();
+        map.draw();
         screen.draw();
+        fade.draw();
     });
 });
 var main = new Main();

@@ -32,7 +32,7 @@ var Fade = (function()
 
             if(this.rectUpY >= this.rectDownY - this.rectDownH)
             {
-                screen.name = this.way;
+                main.screen = this.way;
                 
                 this.speed *= -1;
             }
