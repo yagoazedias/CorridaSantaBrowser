@@ -5,6 +5,8 @@ var Main = (function()
     // This is the fist method to be call.
     this.start = (function()
     {
+        for(var i = 0; i < 5; i++)
+        { button[i].start(); }
         screen.start();
         fade.start();
     });

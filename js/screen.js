@@ -1,14 +1,14 @@
 var Screen = (function()
 {
-    this.image = new Image();
-    this.image.src = "./img/screens/menu.png";
-
-    // Buttons proprietes
- 	  this.btnPosX = [50 , 320, 590];
-
-        // This is the screen fist method to run.
+    // This is the screen fist method to run.
     this.start = (function()
     {
+        this.image = new Image();
+        this.image.src = "./img/screens/menu.png";
+
+        // Buttons proprietes
+        this.btnPosX = [50 , 320, 590];
+
         // Turning the buttons to their respective images.
         button[0].image.src = "./img/buttons/directions.png";
         button[1].image.src = "./img/buttons/play.png";

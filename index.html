@@ -11,7 +11,7 @@
 <script src="js/button.js"></script>
 <script src="js/mouse.js"></script>
 <script src="js/fade.js"></script>
-<link rel="stylesheet" type="text/css" href="css/main.css"/> 
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
 <script>
 
     (function()
@@ -38,8 +38,11 @@
             setTimeout(loop, 30);
         });
 
-        start();
-        loop();
+        window.onload = (function()
+        {
+            start();
+            loop();
+        });
     })();
 
 </script>

@@ -1,16 +1,20 @@
 var Button = (function()
 {
-    // Dimension and space properties. (X axis, Y axis, Width size ...)
-    this.x = 50;
-    this.y = 425;
-    this.w = 170;
-    this.h = 68;
+    this.start = (function()
+    {
+      // Dimension and space properties. (X axis, Y axis, Width size ...)
+      this.x = 50;
+      this.y = 425;
+      this.w = 170;
+      this.h = 68;
 
-    this.name = "";
+      this.name = "";
 
-    // Visual proprerties.
-    this.image = new Image();
-    this.image.src = "./img/buttons/play.png";
+      // Visual proprerties.
+      this.image = new Image();
+      this.image.src = "./img/buttons/play.png";
+
+    });
 
     // This is the button update, here all button functions will enable.
     this.update = (function()
