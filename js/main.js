@@ -7,14 +7,14 @@ var Main = (function()
     {
         for(var i = 0; i < 5; i++)
         { button[i].start(); }
-        screen.start();
+        menu.start();
         fade.start();
     });
 
     // This is the main update, here all game will be update.
     this.update = (function()
     {
-        screen.update();
+        menu.update();
         map.update();
         fade.update();
     });
@@ -24,7 +24,7 @@ var Main = (function()
     {
         canvas.clear();
         map.draw();
-        screen.draw();
+        menu.draw();
         fade.draw();
     });
 });

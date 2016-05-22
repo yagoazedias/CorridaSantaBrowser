@@ -1,4 +1,4 @@
-var Screen = (function()
+var Menu = (function()
 {
     // This is the screen fist method to run.
     this.start = (function()
@@ -40,7 +40,7 @@ var Screen = (function()
             case "menu": button[0].draw(); button[1].draw(); button[2].draw(); break;
             case "pause": /* Pause buttons */ break;
             case "directions": button[3].draw(); break;
-            case "credits" :  button[3].draw(); console.log("Creditis enable");break;
+            case "credits" :  button[3].draw(); break;
         }
     });
 
@@ -117,4 +117,4 @@ var Screen = (function()
 
 });
 
-var screen = new Screen();
+var menu = new Menu();

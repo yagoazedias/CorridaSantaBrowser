@@ -53,22 +53,6 @@ var Fade = (function()
             this.rectDownW = (canvas.element.width);
             this.rectDownH = (canvas.element.height) /  2;
         }
-
-        console.log(this.transition);
-        /*
-        else
-        {
-            this.speed = 10;
-            this.rectUpX = 0;
-            this.rectUpY = -1 * ((canvas.element.height) /  2);
-            this.rectUpW = (canvas.element.width);
-            this.rectUpH = (canvas.element.height) /  2;
-
-            this.rectDownX = 0;
-            this.rectDownY = (canvas.element.height);
-            this.rectDownW = (canvas.element.width);
-            this.rectDownH = (canvas.element.height) /  2;
-        }*/
     });
 
     this.fadeTo = (function(way)
