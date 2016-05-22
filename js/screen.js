@@ -40,7 +40,7 @@ var Screen = (function()
             case "menu": button[0].draw(); button[1].draw(); button[2].draw(); break;
             case "pause": /* Pause buttons */ break;
             case "directions": button[3].draw(); break;
-            case "creditis" :  button[3].draw(); break;
+            case "credits" :  button[3].draw(); console.log("Creditis enable");break;
         }
     });
 
@@ -90,14 +90,14 @@ var Screen = (function()
                     button[i].h = 68;
                 }
             }
-		    }
+        }
 
         switch(main.screen)
         {
             case "menu": this.image.src = "./img/screens/menu.png"; break;
             case "pause": this.image.src = "./img/screens/pause.png"; break;
             case "directions" : this.image.src = "./img/screens/directions.png"; break;
-            case "creditis" : this.image.src = "./img/screens/creditis.png"; break;
+            case "credits" : this.image.src = "./img/screens/credits.png"; break;
         }
 
         switch(main.screen)
@@ -105,7 +105,7 @@ var Screen = (function()
             case "menu": button[0].update(); button[1].update(); button[2].update(); break;
             case "pause": /* Pause buttons */ break;
             case "directions": button[3].update(); ;break;
-            case "creditis" :  button[3].update(); break;
+            case "credits" :  button[3].update(); break;
         }
     });
 
