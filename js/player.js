@@ -4,12 +4,19 @@ var Player = (function()
 	this.y = 100;
 	this.w = 163;
 	this.h = 109;
+    
+    this.moveLeft = false;
+    this.moveRight = false;
+    this.moveUp = false;
+    this.moveDown = false;
 	
 	this.start = (new Date()).getTime();
 	this.currentFrame = 0.;
 	this.numFrames = 3;
 	this.images = [];
 	this.animationSpeed = 5.;
+    
+    this.speed = 2.5;
     
     for (var i = 0; i < this.numFrames; i++)
 	{
@@ -30,6 +37,26 @@ var Player = (function()
 	{
 		this.delta = this.deltaTime();	
 		this.currentFrame += this.delta * this.animationSpeed;
+        
+        if(player.moveLeft)
+        {
+            this.x -= this.speed;     
+        }
+        
+        if(player.moveRight)
+        {
+            this.x += this.speed;     
+        }
+        
+        if(player.moveUp)
+        {
+            this.y -= this.speed;     
+        }
+        
+        if(player.moveDown)
+        {
+            this.y += this.speed;     
+        }
 	}
 	
 	this.draw = function()
