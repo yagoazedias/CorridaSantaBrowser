@@ -46,6 +46,7 @@ var Menu = (function()
 
     this.update = (function()
     {
+        // Buttons updates.
         for(var i = 0; i < button.length; i++)
         {
             if(i < 3)
@@ -106,6 +107,7 @@ var Menu = (function()
             case "pause": /* Pause buttons */ break;
             case "directions": button[3].update(); ;break;
             case "credits" :  button[3].update(); break;
+            case "game": game.update(); break;
         }
     });
 
@@ -114,6 +116,10 @@ var Menu = (function()
         if(main.screen != "game")
         {
             canvas.ctx.drawImage(this.image, 0, 0);
+        }
+        else
+        {
+            game.draw();    
         }
         
         this.buttonDraw();
