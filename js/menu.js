@@ -111,7 +111,11 @@ var Menu = (function()
 
     this.draw = (function()
     {
-        canvas.ctx.drawImage(this.image, 0, 0);
+        if(main.screen != "game")
+        {
+            canvas.ctx.drawImage(this.image, 0, 0);
+        }
+        
         this.buttonDraw();
     });
 

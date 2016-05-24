@@ -28,7 +28,7 @@ var Button = (function()
         		    switch(this.name)
                 {
                     case "back": fade.fadeTo("menu"); break;
-                    case "play": fade.fadeTo("menu"); break;
+                    case "play": fade.fadeTo("game"); break;
                     case "menu": fade.fadeTo("menu"); break;
                     case "directions": fade.fadeTo("directions"); break;
                     case "credits": fade.fadeTo("credits"); break;
@@ -40,7 +40,10 @@ var Button = (function()
     // This is the button draw, here all button visuals will be draw.
     this.draw = (function()
     {
-        canvas.ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
+        if(main.screen != "game")
+        {
+            canvas.ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
+        }
     });
 });
 
