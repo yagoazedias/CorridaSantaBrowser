@@ -52,28 +52,31 @@ var Player = (function()
 		this.delta = this.deltaTime();	
 		this.currentFrame += this.delta * this.animationSpeed;
         
-        switch(this.status)
+        if(pause.isActive != true)
         {
-            case "normal": 
-                this.speed = 3.5; 
-                map.speed = 10;
-                this.animSpeed = 1000.;
-                this.bonusImg.src = "./img/bonus/defaut.png";
-            break;
-                
-            case "fast": 
-                this.speed = 3.5;
-                map.speed = 20.5;
-                this.animSpeed = 500.;
-                this.bonusImg.src = "./img/bonus/defaut.png";
-            break;
-                
-            case "slow": 
-                this.speed = 2.5;
-                map.speed = 1.5;
-                this.animSpeed = 2000.;
-                this.bonusImg.src = "./img/bonus/slowtime.png";
-            break;
+            switch(this.status)
+            {
+                    case "normal": 
+                        this.speed = 3.5; 
+                        map.speed = 10;
+                        this.animSpeed = 1000.;
+                        this.bonusImg.src = "./img/bonus/defaut.png";
+                    break;
+
+                    case "fast": 
+                        this.speed = 3.5;
+                        map.speed = 20.5;
+                        this.animSpeed = 500.;
+                        this.bonusImg.src = "./img/bonus/defaut.png";
+                    break;
+
+                    case "slow": 
+                        this.speed = 2.5;
+                        map.speed = 1.5;
+                        this.animSpeed = 2000.;
+                        this.bonusImg.src = "./img/bonus/slowtime.png";
+                    break;
+            }
         }
         
         if(player.moveLeft)

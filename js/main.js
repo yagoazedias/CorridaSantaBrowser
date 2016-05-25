@@ -17,6 +17,7 @@ var Main = (function()
         menu.update();
         map.update();
         fade.update();
+        pause.update();
     });
 
     // This is the main draw, here all game will be draw.
