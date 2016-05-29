@@ -38,13 +38,12 @@ var Menu = (function()
         switch(main.screen)
         {
             case "menu": button[0].draw(); button[1].draw(); button[2].draw(); break;
-            case "pause": /* Pause buttons */ break;
             case "directions": button[3].draw(); break;
             case "credits" :  button[3].draw(); break;
         }
     });
-
-    this.update = (function()
+    
+    this.buttonExpandEffect = (function()
     {
         // Buttons updates.
         for(var i = 0; i < button.length; i++)
@@ -92,10 +91,13 @@ var Menu = (function()
                 }
             }
         }
-
+    });
+    
+    this.screenControl = (function()
+    {
         switch(main.screen)
         {
-            case "menu": this.image.src = "./img/screens/menu.png"; break;
+            case "menu": this.image.src = "./img/screens/menu.png"; player.status = "normal"; player.life = 10; map.speed = 5; pause.isActive = false; break;
             case "pause": this.image.src = "./img/screens/pause.png"; break;
             case "directions" : this.image.src = "./img/screens/directions.png"; break;
             case "credits" : this.image.src = "./img/screens/credits.png"; break;
@@ -109,6 +111,12 @@ var Menu = (function()
             case "credits" :  button[3].update(); break;
             case "game": game.update(); break;
         }
+    });
+
+    this.update = (function()
+    {
+        this.buttonExpandEffect();
+        this.screenControl();
     });
 
     this.draw = (function()
@@ -126,5 +134,4 @@ var Menu = (function()
     });
 
 });
-
 var menu = new Menu();

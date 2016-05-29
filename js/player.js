@@ -26,6 +26,8 @@ var Player = (function()
     
     this.speed = 2.5;
     
+    this.life = 10;
+    
     for (var i = 0; i < this.numFrames; i++)
 	{
 	    this.images[i] = new Image();
@@ -56,26 +58,26 @@ var Player = (function()
         {
             switch(this.status)
             {
-                    case "normal": 
-                        this.speed = 3.5; 
-                        map.speed = 10;
-                        this.animSpeed = 1000.;
-                        this.bonusImg.src = "./img/bonus/defaut.png";
-                    break;
+                case "normal": 
+                    this.speed = 3.5; 
+                    map.speed = 10;
+                    this.animSpeed = 1000.;
+                    this.bonusImg.src = "./img/bonus/defaut.png";
+                break;
 
-                    case "fast": 
-                        this.speed = 3.5;
-                        map.speed = 20.5;
-                        this.animSpeed = 500.;
-                        this.bonusImg.src = "./img/bonus/defaut.png";
-                    break;
+                case "fast": 
+                    this.speed = 3.5;
+                    map.speed = 20.5;
+                    this.animSpeed = 500.;
+                    this.bonusImg.src = "./img/bonus/defaut.png";
+                break;
 
-                    case "slow": 
-                        this.speed = 2.5;
-                        map.speed = 1.5;
-                        this.animSpeed = 2000.;
-                        this.bonusImg.src = "./img/bonus/slowtime.png";
-                    break;
+                case "slow": 
+                    this.speed = 2.5;
+                    map.speed = 1.5;
+                    this.animSpeed = 2000.;
+                    this.bonusImg.src = "./img/bonus/slowtime.png";
+                break;
             }
         }
         
@@ -111,7 +113,6 @@ var Player = (function()
         
         canvas.ctx.drawImage(this.bonusImg, 0, 0);
     }	
-
 });
 
 var player = new Player();

@@ -5,9 +5,10 @@ var Main = (function()
     // This is the fist method to be call.
     this.start = (function()
     {
-        for(var i = 0; i < 5; i++)
+        for(var i = 0; i < 4; i++)
         { button[i].start(); }
         menu.start();
+        pause.start();
         fade.start();
     });
 
@@ -17,7 +18,6 @@ var Main = (function()
         menu.update();
         map.update();
         fade.update();
-        pause.update();
     });
 
     // This is the main draw, here all game will be draw.

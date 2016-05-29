@@ -19,13 +19,13 @@ var Button = (function()
     // This is the button update, here all button functions will enable.
     this.update = (function()
     {
-    		// Mouse and button colision.
+        // Mouse and button colision.
         if(((mouse.x >= this.x) && (mouse.x <= this.x + this.w))
     		   && ((mouse.y >= this.y) && (mouse.y <= this.y + this.h)))
-    		{
-        		if(mouse.click)
-        		{
-        		    switch(this.name)
+        {
+        	if(mouse.click)
+        	{
+                switch(this.name)
                 {
                     case "back": fade.fadeTo("menu"); break;
                     case "play": fade.fadeTo("game"); break;
@@ -33,21 +33,18 @@ var Button = (function()
                     case "directions": fade.fadeTo("directions"); break;
                     case "credits": fade.fadeTo("credits"); break;
                 }
-        		}
-    		}
+            }
+        }
     });
 
     // This is the button draw, here all button visuals will be draw.
     this.draw = (function()
     {
-        if(main.screen != "game")
-        {
-            canvas.ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
-        }
+        canvas.ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
     });
 });
 
 var button = [];
 
-for(var i = 0; i < 5; i++)
+for(var i = 0; i < 4; i++)
 { button[i] = new Button(); }
