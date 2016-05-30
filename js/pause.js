@@ -38,21 +38,26 @@ var Pause = (function()
     
     this.speedControl = (function()
     {
-        if(this.isActive === true)   
+        for(i = 0; i < 3; i++)
         {
-            player.speed = 0;
-            map.speed = 0;
-            player.animSpeed = 10 / 0;
-        }
-        else 
-        {
-            switch(player.status)
+            if(this.isActive === true)   
             {
-                case "normal" : player.speed = 3.5; map.speed = 10;   player.animSpeed = 1000.; break;
-                case "fast" :   player.speed = 3.5; map.speed = 20.5; player.animSpeed = 500.;  break;
-                case "slow" :   player.speed = 2.5; map.speed = 1.5;  player.animSpeed = 2000.; break;
+                player.speed = 0;
+                map.speed = 0;
+                player.animSpeed = 10 / 0;
+                arrow[i].speed = 0;
+
             }
-        } 
+            else 
+            {
+                switch(player.status)
+                {
+                    case "normal" : player.speed = 3.5; map.speed = 10;   player.animSpeed = 1000.; arrow[i].speed = 5; break;
+                    case "fast" :   player.speed = 3.5; map.speed = 20.5; player.animSpeed = 500.;  arrow[i].speed = 5; break;
+                    case "slow" :   player.speed = 2.5; map.speed = 1.5;  player.animSpeed = 2000.; arrow[i].speed = 5; break;
+                }
+            }
+        }
     });
     
     this.buttonControl = (function()
@@ -112,8 +117,10 @@ var Pause = (function()
         if(this.isActive === true)   
         {
             canvas.ctx.drawImage(this.image, 0, 0);
-            canvas.ctx.drawImage(this.buttonBack.image, this.buttonBack.x, this.buttonBack.y, this.buttonBack.w, this.buttonBack.h);
-            canvas.ctx.drawImage(this.buttonMenu.image, this.buttonMenu.x, this.buttonMenu.y, this.buttonMenu.w, this.buttonMenu.h);
+            canvas.ctx.drawImage(this.buttonBack.image, this.buttonBack.x, 
+                                 this.buttonBack.y, this.buttonBack.w, this.buttonBack.h);
+            canvas.ctx.drawImage(this.buttonMenu.image, this.buttonMenu.x, 
+                                 this.buttonMenu.y, this.buttonMenu.w, this.buttonMenu.h);
         }
     });
     
